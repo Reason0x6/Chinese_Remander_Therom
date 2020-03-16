@@ -2,7 +2,7 @@
 -------------
 A Java Program to take a Chinese Remander Therom problem and output worked answers
 
-##input
+## input
 once the program is loaded it will ask you for N & A
 
 This comes from Ax mod N = 1
