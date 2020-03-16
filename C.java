@@ -23,6 +23,7 @@ class C{
       cTheroy(a,n);
   }
 
+  //gets the prime factors
   public void prime( int number ){
 
     for(int i = 2; i< number; i++) {
@@ -37,11 +38,13 @@ class C{
             fact.add(number);
       }
   }
+  
+  //compresses the factors to where 2^3 = 8 etc
 
   public void condence(){
 
     int[][] seen = new int[100000][2];
-   
+    
         for(int i = 0; i < fact.size(); i++){
           if (Arrays.asList(fact.get(i)).contains(fact.get(i))){
             seen[fact.get(i)][0] += 1;
@@ -63,8 +66,8 @@ class C{
       
   }
 
+  //solves for x values
   public void solveX( int a, int n){
-        System.out.println(fact.get(0));
         for(int i = 0; i < fact.size(); i++){
             int x = 1;
             while( a * x % fact.get(i) != 1){
@@ -73,12 +76,14 @@ class C{
               }
               x++;
             }
-            System.out.println("x" + i + " = " + x);
+            System.out.println("Where " + a + "x mod " + fact.get(i) + " = 1 | x" + i + " = " + x);
             xs.add(x);
         }
+        System.out.println("----------");
 
   }
-
+  
+  //solves for the Y Values
    public void solveY( int a, int n){
 
         for(int i = 0; i < fact.size(); i++){
@@ -92,24 +97,29 @@ class C{
               y++;
             }
 
-            System.out.println("y" + i + " = " + y);
+            System.out.println("Where " + n +"/"+fact.get(i) + "y mod " + fact.get(i) + " = 1 | y" + i + " = " + y);
             ys.add(y);
         }
          System.out.println("----------");
 
   }
 
+  
+  // impliments the remander therom
   public void cTheroy( int a, int n){
 
       int tot = 0;
-
+    System.out.println("Subbing into the theorem");
         for(int i = 0; i < fact.size(); i++){
-           
+           if(i > 0 ){
+              System.out.print(" + ");
+           }
            tot += (n/ fact.get(i) ) * xs.get(i) * ys.get(i);
+           System.out.print((n +"/" + fact.get(i) + " * " +  xs.get(i) +" * " + ys.get(i) ));
            
         }
-
-         System.out.println(" x = " + tot % n);
+        System.out.println("\n");
+         System.out.println("Therefor, x = " + tot % n);
 
        
 
