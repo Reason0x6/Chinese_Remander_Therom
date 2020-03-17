@@ -88,7 +88,7 @@ class C{
 
         for(int i = 0; i < fact.size(); i++){
             int y = 1;
-            int t = (n/fact.get(i));
+            double t = (n/fact.get(i));
 
             while(  t * y % fact.get(i) != 1){
               if( t * y % fact.get(i) == 0 ){
@@ -108,7 +108,7 @@ class C{
   // impliments the remander therom
   public void cTheroy( int a, int n){
 
-      int tot = 0;
+      double tot = 0;
     System.out.println("Subbing into the theorem");
         for(int i = 0; i < fact.size(); i++){
            if(i > 0 ){
@@ -124,7 +124,5 @@ class C{
        
 
   }
-
-
 
 }
